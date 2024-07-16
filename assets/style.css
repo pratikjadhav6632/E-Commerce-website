@@ -1,0 +1,89 @@
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Navbar */
+.navbar {
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand img {
+    max-width: 120px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #555;
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #007bff;
+}
+
+/* Carousel */
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Category Section */
+.shop_by_category .card {
+    transition: transform 0.3s ease;
+}
+
+.shop_by_category .card:hover {
+    transform: scale(1.05);
+}
+
+/* Products Section */
+.products .single_product {
+    transition: box-shadow 0.3s ease;
+}
+
+.products .single_product:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.products .product-caption h4 a {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.products .product-caption h4 a:hover {
+    color: #007bff;
+}
+
+.products .product-ratting i {
+    color: #ffc107;
+}
+
+.products .product-ratting .low-star {
+    color: #ddd;
+}
+#scrollToTopBtn {
+  margin-left: 50%;
+}
+
+/* Footer */
+.footer {
+    background: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    color: #555;
+}
