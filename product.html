@@ -22,6 +22,7 @@
                     <div class="mb-5">
                         <label><b>Category</b></label>
                         <ul class="list-group" id="category-filter">
+                            <a href="#"><li class="list-group-item">All Products</li></a>
                           <a href="#"><li class="list-group-item">Fashion</li></a>
                           <a href="#"><li class="list-group-item">Electronics</li></a>
                           <a href="#"><li class="list-group-item">Beauty Products</li></a>
@@ -51,6 +52,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="row" id="product-list">
+                    <!--Fashion-->
                         <div class="col-md-4 col-12">
                             <div class="single_product shadow text-center p-1">
                                 <div class="product_img">
@@ -171,9 +173,54 @@
                                 </div>
                             </div>
                         </div>
+                    <!--Electronics-->
+                    <div class="col-md-4 col-12">
+                        <div class="single_product shadow text-center p-1">
+                            <div class="product_img">
+                                <a href="product_detail.html"><img src="assets/images/Earphone.jpeg" class="img img-fluid" alt=""></a>
+                            </div>
+                            <div class="product-caption my-3">
+                                <div class="product-ratting">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <h5><a href="product_detail.html">Earphones with details</a></h5>
+                                <div class="price">
+                                    <b><span class="mr-1">₹</span><span>299</span></b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Beauty Products-->
+                    <div class="col-md-4 col-12">
+                        <div class="single_product shadow text-center p-1">
+                            <div class="product_img">
+                                <a href="product_detail.html"><img src="assets/images/Skin-Care.webp" class="img img-fluid" alt=""></a>
+                            </div>
+                            <div class="product-caption my-3">
+                                <div class="product-ratting">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <h5><a href="product_detail.html">Skin-care with details</a></h5>
+                                <div class="price">
+                                    <b><span class="mr-1">₹</span><span>999</span></b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                         <!-- Repeat similar blocks for more products -->
                     </div>
                 </div>
+                <button onclick="scrollToTop()" id="scrollToTopBtn" class="btn btn-sm btn-outline-primary TopBtn" title="Go to top">Go Top</button>
             </div>
         </div>
     </section>
@@ -182,6 +229,99 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="assets/main.js"></script>
+    <script>
+        $(document).ready(function () {
+    const products = [
+        { id: 1, name: "Green Hoodie with details", price: 299, category: "Fashion", rating: 3, image: "assets/images/green-dress.jpeg" },
+        { id: 2, name: "Black Kurti with details", price: 899, category: "Fashion", rating: 4, image: "assets/images/w-dress.jpeg" },
+        { id: 3, name: "Blue Jacket with details", price: 599, category: "Fashion", rating: 3, image: "assets/images/jacket.jpeg" },
+        { id: 4, name: "Blue Hoodie with details", price: 299, category: "Fashion", rating: 3, image: "assets/images/blue-dress.jpeg" },
+        { id: 5, name: "Girl Outfit with details", price: 799, category: "Fashion", rating: 4, image: "assets/images/girl-dress.jpeg" },
+        { id: 6, name: "Hoodie with details", price: 399, category: "Fashion", rating: 4, image: "assets/images/sweater.jpeg" },
+        { id: 7, name: "Earphone with details", price: 999, category: "Electronics", rating: 4, image: "assets/images/Earphone.jpeg" },
+        { id: 8, name: "Skin-care with details", price: 999, category: "Beauty Products", rating: 4, image: "assets/images/Skin-Care.webp" },
+        // Add more product details here as needed
+    ];
+    function displayProducts(productList) {
+        $("#product-list").empty();
+        productList.forEach(product => {
+            const productHtml = `
+                <div class="col-md-4 col-12">
+                    <div class="single_product shadow text-center p-1">
+                        <div class="product_img">
+                            <a href="product_detail.html"><img src="${product.image}" class="img img-fluid" alt=""></a>
+                        </div>
+                        <div class="product-caption my-3">
+                            <div class="product-ratting">
+                                ${getStarRating(product.rating)}
+                            </div>
+                            <h5><a href="product_detail.html">${product.name}</a></h5>
+                            <div class="price">
+                                <b><span class="mr-1">₹</span><span>${product.price}</span></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            $("#product-list").append(productHtml);
+        });
+    }
+
+    function getStarRating(rating) {
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= rating) {
+                stars += '<i class="fas fa-star"></i>';
+            } else {
+                stars += '<i class="far fa-star"></i>';
+            }
+        }
+        return stars;
+    }
+
+    function filterByCategory(category) {
+        return category === 'All Products' ? products : products.filter(product => product.category === category);
+    }
+
+    function filterByPrice(maxPrice) {
+        return products.filter(product => product.price <= maxPrice);
+    }
+
+    function sortProducts(criteria) {
+        return [...products].sort((a, b) => {
+            if (criteria === 'a-z') {
+                return a.name.localeCompare(b.name);
+            } else if (criteria === 'z-a') {
+                return b.name.localeCompare(a.name);
+            } else if (criteria === 'low-high') {
+                return a.price - b.price;
+            } else if (criteria === 'high-low') {
+                return b.price - a.price;
+            }
+            return 0;
+        });
+    }
+
+    $("#category-filter a").click(function (e) {
+        e.preventDefault();
+        const category = $(this).text();
+        displayProducts(filterByCategory(category));
+    });
+
+    $("#price-range").on("input change", function () {
+        const maxPrice = $(this).val();
+        displayProducts(filterByPrice(maxPrice));
+    });
+
+    $("#sort-options").change(function () {
+        const sortOption = $(this).val();
+        displayProducts(sortProducts(sortOption));
+    });
+
+    // Initially display all products under "All Products" category
+    displayProducts(products);
+});
+    </script>
 </body>
 
 </html>
