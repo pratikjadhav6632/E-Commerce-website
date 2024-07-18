@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="Assets/style.css">
 </head>
-
 <body>
     <!-- Navbar -->
     <section class="header_menu" id="header_menu">
@@ -30,7 +28,7 @@
                             <a class="nav-link" href="product.html">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="category.html">Category</a>
+                            <a class="nav-link" href="Category.html">Category</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About Us</a>
@@ -171,99 +169,74 @@
                 { id: 4, name: "Blue Hoodie with details", price: 299, category: "Fashion", rating: 3, image: "assets/images/blue-dress.jpeg" },
                 { id: 5, name: "Girl Outfit with details", price: 799, category: "Fashion", rating: 4, image: "assets/images/girl-dress.jpeg" },
                 { id: 6, name: "Hoodie with details", price: 299, category: "Fashion", rating: 3, image: "assets/images/sweater.jpeg" },
-                { id: 7, name: "Realme 5 pro", price: 11999, category: "Electronics", rating: 4, image: "assets/images/realme.jpeg" },
-                { id: 8, name: "Iphone 14 pro", price: 119999, category: "Electronics", rating: 5, image: "assets/images/iphone.jpeg" },
-                { id: 9, name: "Oneplus Nord", price: 49999, category: "Electronics", rating: 4, image: "assets/images/oneplus.jpeg" },
-                { id: 10, name: "Vivo v11", price: 7999, category: "Electronics", rating: 3, image: "assets/images/vivo.jpeg" },
-                { id: 11, name: "Beauty Product", price: 499, category: "Beauty Products", rating: 5, image: "assets/images/beauty1.jpeg" },
-                { id: 12, name: "Beauty Product", price: 999, category: "Beauty Products", rating: 5, image: "assets/images/beauty2.jpeg" },
-                { id: 13, name: "Beauty Product", price: 299, category: "Beauty Products", rating: 5, image: "assets/images/beauty3.jpeg" },
-                { id: 14, name: "Beauty Product", price: 499, category: "Beauty Products", rating: 5, image: "assets/images/beauty4.jpeg" },
-                { id: 15, name: "Beauty Product", price: 799, category: "Beauty Products", rating: 5, image: "assets/images/beauty5.jpeg" }
+                { id: 7, name: "Smart TV with details", price: 19999, category: "Electronics", rating: 4, image: "assets/images/tv.jpg" },
+                { id: 8, name: "Phone with details", price: 19999, category: "Electronics", rating: 4, image: "assets/images/phone.jpg" },
+                { id: 9, name: "Smartwatch with details", price: 1999, category: "Electronics", rating: 4, image: "assets/images/watch.jpg" },
+                { id: 10, name: "Earbuds with details", price: 1999, category: "Electronics", rating: 4, image: "assets/images/earbuds.jpg" },
+                { id: 11, name: "Perfume with details", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/perfume.jpg" },
+                { id: 12, name: "Cream with details", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/cream.jpg" },
             ];
 
-            const productContainer = $("#product-list");
-
-            function displayProducts(products) {
-                productContainer.empty();
-                products.forEach(product => {
-                    const productHtml = `
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <img src="${product.image}" class="card-img-top" alt="${product.name}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${product.name}</h5>
-                                    <p class="card-text">₹${product.price}</p>
-                                    <p class="card-text">Category: ${product.category}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
-                                        </div>
-                                        <small class="text-muted">Rating: ${product.rating}</small>
-                                    </div>
-                                </div>
+            function renderProducts(filterCategory = "All Products") {
+                const filteredProducts = filterCategory === "All Products" ? products : products.filter(product => product.category === filterCategory);
+                const sortedProducts = filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+                const productHTML = sortedProducts.map(product => `
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">Price: ₹${product.price}</p>
+                                <p class="card-text">Rating: ${'★'.repeat(product.rating)}</p>
+                                <a href="product-details.html?id=${product.id}" class="btn btn-primary">View</a>
                             </div>
                         </div>
-                    `;
-                    productContainer.append(productHtml);
-                });
+                    </div>
+                `).join("");
+                $('#product-list').html(productHTML);
             }
 
-            function filterProducts(category, priceRange) {
-                return products.filter(product => {
-                    const matchesCategory = category === 'All Products' || product.category === category;
-                    const matchesPrice = product.price <= priceRange;
-                    return matchesCategory && matchesPrice;
-                });
-            }
+            renderProducts();
 
-            function sortProducts(products, sortBy) {
-                return products.sort((a, b) => {
-                    switch (sortBy) {
-                        case 'a-z':
-                            return a.name.localeCompare(b.name);
-                        case 'z-a':
-                            return b.name.localeCompare(a.name);
-                        case 'low-high':
-                            return a.price - b.price;
-                        case 'high-low':
-                            return b.price - a.price;
-                        default:
-                            return 0;
-                    }
-                });
-            }
-
-            function applyFiltersAndSort() {
-                const category = $(".category-link.active").data("category") || "All Products";
-                const priceRange = $("#price-range").val();
-                const sortBy = $("#sort-options").val();
-                const filteredProducts = filterProducts(category, priceRange);
-                const sortedProducts = sortProducts(filteredProducts, sortBy);
-                displayProducts(sortedProducts);
-            }
-
-            $(".category-link").on("click", function (e) {
+            $('.category-link').on('click', function (e) {
                 e.preventDefault();
-                $(".category-link").removeClass("active");
-                $(this).addClass("active");
-                applyFiltersAndSort();
+                const category = $(this).data('category');
+                renderProducts(category);
             });
 
-            $("#price-range").on("input", function () {
-                applyFiltersAndSort();
+            $('#sort-options').on('change', function () {
+                const sortOption = $(this).val();
+                if (sortOption === "a-z") {
+                    products.sort((a, b) => a.name.localeCompare(b.name));
+                } else if (sortOption === "z-a") {
+                    products.sort((a, b) => b.name.localeCompare(a.name));
+                } else if (sortOption === "low-high") {
+                    products.sort((a, b) => a.price - b.price);
+                } else if (sortOption === "high-low") {
+                    products.sort((a, b) => b.price - a.price);
+                }
+                renderProducts();
             });
 
-            $("#sort-options").on("change", function () {
-                applyFiltersAndSort();
+            $('#price-range').on('input', function () {
+                const maxPrice = $(this).val();
+                const filteredProducts = products.filter(product => product.price <= maxPrice);
+                const productHTML = filteredProducts.map(product => `
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">Price: ₹${product.price}</p>
+                                <p class="card-text">Rating: ${'★'.repeat(product.rating)}</p>
+                                <a href="product-details.html?id=${product.id}" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+                    </div>
+                `).join("");
+                $('#product-list').html(productHTML);
             });
-            
-
-            // Initialize display with all products
-            displayProducts(products);
         });
     </script>
 </body>
-
 </html>
