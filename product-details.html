@@ -59,10 +59,10 @@
                     <img id="product-image" src="" class="img-fluid" alt="Product Image">
                 </div>
                 <div class="col-md-6">
-                    <h3 id="name">Laptop with details</h3>
-                    <p id="price">49999</p>
-                    <p id="rating">5</p>
-                    <p id="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, magnam.</p>
+                    <h3 id="product-name">Laptop with details</h3>
+                    <p id="product-price">49999</p>
+                    <p id="product-rating">5</p>
+                    <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, magnam.</p>
                     <button class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
@@ -132,18 +132,18 @@
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
             const products = [
-                { id: 1, name: "Laptop with details", price: 49999, category: "Electronics", rating: 5, image: "assets/images/laptop.jpg" },
-                { id: 2, name: "Camera with details", price: 19999, category: "Electronics", rating: 4, image: "assets/images/camera.jpg" },
-                { id: 3, name: "Shoes with details", price: 4999, category: "Fashion", rating: 4, image: "assets/images/shoes.jpg" },
-                { id: 4, name: "Watch with details", price: 2999, category: "Fashion", rating: 4, image: "assets/images/watch.jpg" },
-                { id: 5, name: "Bag with details", price: 999, category: "Fashion", rating: 4, image: "assets/images/bag.jpg" },
-                { id: 6, name: "Sunglasses with details", price: 999, category: "Fashion", rating: 4, image: "assets/images/sunglasses.jpg" },
-                { id: 7, name: "Smart TV with details", price: 19999, category: "Electronics", rating: 4, image: "assets/images/tv.jpg" },
-                { id: 8, name: "Phone with details", price: 19999, category: "Electronics", rating: 4, image: "assets/images/phone.jpg" },
-                { id: 9, name: "Smartwatch with details", price: 1999, category: "Electronics", rating: 4, image: "assets/images/watch.jpg" },
-                { id: 10, name: "Earbuds with details", price: 1999, category: "Electronics", rating: 4, image: "assets/images/earbuds.jpg" },
-                { id: 11, name: "Perfume with details", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/perfume.jpg" },
-                { id: 12, name: "Cream with details", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/cream.jpg" },
+                { id: 1, name: "Green hoddie with details", price: 299, category: "Electronics", rating: 3, image: "assets/images/green-dress.jpeg" },
+                { id: 2, name: "Black Kurti with details", price: 899, category: "Fashion", rating: 4, image: "assets/images/w-dress.jpeg" },
+                { id: 3, name: "Jacket with details", price: 299, category: "Fashion", rating: 4, image: "assets/images/jacket.jpeg" },
+                { id: 4, name: "Blue Hoddie with details", price: 299, category: "Fashion", rating: 4, image: "assets/images/blue-dress.jpeg" },
+                { id: 5, name: "Girl Outfit with details", price: 799, category: "Fashion", rating: 4, image: "assets/images/girl-dress.jpeg" },
+                { id: 6, name: "Hoddie with details", price: 299, category: "Fashion", rating: 3, image: "assets/images/sweater.jpeg" },
+                { id: 7, name: "iphone with details", price: 119999, category: "Electronics", rating: 4, image: "assets/images/iphone.jpeg" },
+                { id: 8, name: "vivo with details", price: 19999, category: "Electronics", rating: 4, image: "assets/images/vivo.jpeg" },
+                { id: 9, name: "Laptop with details", price: 49999, category: "Electronics", rating: 5, image: "assets/images/laptop.jpeg" },
+                { id: 10, name: "camera with details", price: 119999, category: "Electronics", rating: 4, image: "assets/images/camera.jpeg" },
+                { id: 11, name: "Beauty product with details", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty1.jpeg" },
+                { id: 12, name: "Beauty product with details", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty2.jpeg" },
             ];
             const product = products.find(product => product.id == productId);
             if (product) {
