@@ -176,3 +176,35 @@ img {
     margin: 0;
     font-size: 14px;
 }
+
+/*category page*/
+        .products .single_product {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .products .single_product:hover {
+            transform: scale(1.05);
+        }
+
+        .products .product_img img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .products .product-caption h4 a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .products .product-caption h4 a:hover {
+            color: #007bff;
+        }
+
+        .products .new_product .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
