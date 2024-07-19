@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <section class="header_menu" id="header_menu">
@@ -16,7 +18,9 @@
                 <a class="navbar-brand pl-5 pl-small-0" href="index.html">
                     <img src="assets/images/logo.png" class="img img-fluid" width="120px" alt="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -102,7 +106,8 @@
                     <div class="footer-logo">
                         <img src="assets/images/logo.png" alt="Company Logo" class="img-fluid mb-3" width="150">
                     </div>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, totam est illum ipsum quas ad dignissimos magni veritatis natus voluptatem.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, totam est illum ipsum quas ad
+                        dignissimos magni veritatis natus voluptatem.</p>
                 </div>
                 <!-- Quick Links -->
                 <div class="col-md-2">
@@ -155,19 +160,19 @@
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
             const products = [
-            { id: 1, name: "Green Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/green-dress.jpeg", image2: "assets/images/green2-dress.jpeg", image3: "assets/images/green3-dress.jpeg" },
-        { id: 2, name: "Black Kurti", price: 899, category: "Fashion", rating: 4, image: "assets/images/w-dress.jpeg", image2: "assets/images/black2-kurti.jpeg", image3: "assets/images/black3-kurti.jpeg" },
-        { id: 3, name: "Jacket", price: 299, category: "Fashion", rating: 4, image: "assets/images/jacket.jpeg", image2: "assets/images/jacket2.jpeg", image3: "assets/images/jacket3.jpeg" },
-        { id: 4, name: "Blue Hoodie", price: 299, category: "Fashion", rating: 4, image: "assets/images/blue-dress.jpeg", image2: "assets/images/blue2-dress.jpeg", image3: "assets/images/blue3-dress.jpeg" },
-        { id: 5, name: "Girl Outfit", price: 799, category: "Fashion", rating: 4, image: "assets/images/girl-dress.jpeg", image2: "assets/images/girl2-dress.jpeg", image3: "assets/images/girl3-dress.jpeg" },
-        { id: 6, name: "Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/sweater.jpeg", image2: "assets/images/sweater2.jpeg", image3: "assets/images/sweater3.jpeg" },
-        { id: 7, name: "iPhone", price: 119999, category: "Electronics", rating: 4, image: "assets/images/iphone.jpeg", image2: "assets/images/iphone2.jpeg", image3: "assets/images/iphone3.jpeg" },
-        { id: 8, name: "Vivo", price: 19999, category: "Electronics", rating: 4, image: "assets/images/vivo.jpeg", image2: "assets/images/vivo2.jpeg", image3: "assets/images/vivo3.jpeg" },
-        { id: 9, name: "Laptop", price: 49999, category: "Electronics", rating: 5, image: "assets/images/laptop.jpeg", image2: "assets/images/laptop2.jpeg", image3: "assets/images/laptop3.jpeg" },
-        { id: 10, name: "Camera", price: 119999, category: "Electronics", rating: 4, image: "assets/images/camera.jpeg", image2: "assets/images/camera2.jpeg", image3: "assets/images/camera3.jpeg" },
-        { id: 11, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty1.jpeg", image2: "assets/images/beauty1-2.jpeg", image3: "assets/images/beauty1-3.jpeg" },
-        { id: 12, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty2.jpeg", image2: "assets/images/beauty2-2.jpeg", image3: "assets/images/beauty2-3.jpeg" },
-    ];
+                { id: 1, name: "Green Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/green-dress.jpeg", image2: "assets/images/green2-dress.jpeg", image3: "assets/images/green3-dress.jpeg" },
+                { id: 2, name: "Black Kurti", price: 899, category: "Fashion", rating: 4, image: "assets/images/w-dress.jpeg", image2: "assets/images/black2-kurti.jpeg", image3: "assets/images/black3-kurti.jpeg" },
+                { id: 3, name: "Jacket", price: 299, category: "Fashion", rating: 4, image: "assets/images/jacket.jpeg", image2: "assets/images/jacket2.jpeg", image3: "assets/images/jacket3.jpeg" },
+                { id: 4, name: "Blue Hoodie", price: 299, category: "Fashion", rating: 4, image: "assets/images/blue-dress.jpeg", image2: "assets/images/blue2-dress.jpeg", image3: "assets/images/blue3-dress.jpeg" },
+                { id: 5, name: "Girl Outfit", price: 799, category: "Fashion", rating: 4, image: "assets/images/girl-dress.jpeg", image2: "assets/images/girl2-dress.jpeg", image3: "assets/images/girl3-dress.jpeg" },
+                { id: 6, name: "Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/sweater.jpeg", image2: "assets/images/sweater2.jpeg", image3: "assets/images/sweater3.jpeg" },
+                { id: 7, name: "iPhone", price: 119999, category: "Electronics", rating: 4, image: "assets/images/iphone.jpeg", image2: "assets/images/iphone2.jpeg", image3: "assets/images/iphone3.jpeg" },
+                { id: 8, name: "Vivo", price: 19999, category: "Electronics", rating: 4, image: "assets/images/vivo.jpeg", image2: "assets/images/vivo2.jpeg", image3: "assets/images/vivo3.jpeg" },
+                { id: 9, name: "Laptop", price: 49999, category: "Electronics", rating: 5, image: "assets/images/laptop.jpeg", image2: "assets/images/laptop2.jpeg", image3: "assets/images/laptop3.jpeg" },
+                { id: 10, name: "Camera", price: 119999, category: "Electronics", rating: 4, image: "assets/images/camera.jpeg", image2: "assets/images/camera2.jpeg", image3: "assets/images/camera3.jpeg" },
+                { id: 11, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty1.jpeg", image2: "assets/images/beauty1-2.jpeg", image3: "assets/images/beauty1-3.jpeg" },
+                { id: 12, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty2.jpeg", image2: "assets/images/beauty2-2.jpeg", image3: "assets/images/beauty2-3.jpeg" },
+            ];
             const product = products.find(product => product.id == productId);
             if (product) {
                 $('#product-image').attr('src', product.image);
@@ -187,19 +192,19 @@
             const productId = urlParams.get('id');
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const products = [
-            { id: 1, name: "Green Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/green-dress.jpeg", image2: "assets/images/green2-dress.jpeg", image3: "assets/images/green3-dress.jpeg" },
-        { id: 2, name: "Black Kurti", price: 899, category: "Fashion", rating: 4, image: "assets/images/w-dress.jpeg", image2: "assets/images/black2-kurti.jpeg", image3: "assets/images/black3-kurti.jpeg" },
-        { id: 3, name: "Jacket", price: 299, category: "Fashion", rating: 4, image: "assets/images/jacket.jpeg", image2: "assets/images/jacket2.jpeg", image3: "assets/images/jacket3.jpeg" },
-        { id: 4, name: "Blue Hoodie", price: 299, category: "Fashion", rating: 4, image: "assets/images/blue-dress.jpeg", image2: "assets/images/blue2-dress.jpeg", image3: "assets/images/blue3-dress.jpeg" },
-        { id: 5, name: "Girl Outfit", price: 799, category: "Fashion", rating: 4, image: "assets/images/girl-dress.jpeg", image2: "assets/images/girl2-dress.jpeg", image3: "assets/images/girl3-dress.jpeg" },
-        { id: 6, name: "Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/sweater.jpeg", image2: "assets/images/sweater2.jpeg", image3: "assets/images/sweater3.jpeg" },
-        { id: 7, name: "iPhone", price: 119999, category: "Electronics", rating: 4, image: "assets/images/iphone.jpeg", image2: "assets/images/iphone2.jpeg", image3: "assets/images/iphone3.jpeg" },
-        { id: 8, name: "Vivo", price: 19999, category: "Electronics", rating: 4, image: "assets/images/vivo.jpeg", image2: "assets/images/vivo2.jpeg", image3: "assets/images/vivo3.jpeg" },
-        { id: 9, name: "Laptop", price: 49999, category: "Electronics", rating: 5, image: "assets/images/laptop.jpeg", image2: "assets/images/laptop2.jpeg", image3: "assets/images/laptop3.jpeg" },
-        { id: 10, name: "Camera", price: 119999, category: "Electronics", rating: 4, image: "assets/images/camera.jpeg", image2: "assets/images/camera2.jpeg", image3: "assets/images/camera3.jpeg" },
-        { id: 11, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty1.jpeg", image2: "assets/images/beauty1-2.jpeg", image3: "assets/images/beauty1-3.jpeg" },
-        { id: 12, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty2.jpeg", image2: "assets/images/beauty2-2.jpeg", image3: "assets/images/beauty2-3.jpeg" },
-    ];
+                { id: 1, name: "Green Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/green-dress.jpeg", image2: "assets/images/green2-dress.jpeg", image3: "assets/images/green3-dress.jpeg" },
+                { id: 2, name: "Black Kurti", price: 899, category: "Fashion", rating: 4, image: "assets/images/w-dress.jpeg", image2: "assets/images/black2-kurti.jpeg", image3: "assets/images/black3-kurti.jpeg" },
+                { id: 3, name: "Jacket", price: 299, category: "Fashion", rating: 4, image: "assets/images/jacket.jpeg", image2: "assets/images/jacket2.jpeg", image3: "assets/images/jacket3.jpeg" },
+                { id: 4, name: "Blue Hoodie", price: 299, category: "Fashion", rating: 4, image: "assets/images/blue-dress.jpeg", image2: "assets/images/blue2-dress.jpeg", image3: "assets/images/blue3-dress.jpeg" },
+                { id: 5, name: "Girl Outfit", price: 799, category: "Fashion", rating: 4, image: "assets/images/girl-dress.jpeg", image2: "assets/images/girl2-dress.jpeg", image3: "assets/images/girl3-dress.jpeg" },
+                { id: 6, name: "Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/sweater.jpeg", image2: "assets/images/sweater2.jpeg", image3: "assets/images/sweater3.jpeg" },
+                { id: 7, name: "iPhone", price: 119999, category: "Electronics", rating: 4, image: "assets/images/iphone.jpeg", image2: "assets/images/iphone2.jpeg", image3: "assets/images/iphone3.jpeg" },
+                { id: 8, name: "Vivo", price: 19999, category: "Electronics", rating: 4, image: "assets/images/vivo.jpeg", image2: "assets/images/vivo2.jpeg", image3: "assets/images/vivo3.jpeg" },
+                { id: 9, name: "Laptop", price: 49999, category: "Electronics", rating: 5, image: "assets/images/laptop.jpeg", image2: "assets/images/laptop2.jpeg", image3: "assets/images/laptop3.jpeg" },
+                { id: 10, name: "Camera", price: 119999, category: "Electronics", rating: 4, image: "assets/images/camera.jpeg", image2: "assets/images/camera2.jpeg", image3: "assets/images/camera3.jpeg" },
+                { id: 11, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty1.jpeg", image2: "assets/images/beauty1-2.jpeg", image3: "assets/images/beauty1-3.jpeg" },
+                { id: 12, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty2.jpeg", image2: "assets/images/beauty2-2.jpeg", image3: "assets/images/beauty2-3.jpeg" },
+            ];
             const product = products.find(product => product.id == productId);
 
             if (product) {
@@ -222,4 +227,5 @@
         }
     </script>
 </body>
+
 </html>

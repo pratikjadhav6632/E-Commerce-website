@@ -21,7 +21,9 @@
                 <a class="navbar-brand pl-5 pl-small-0" href="index.html">
                     <img src="assets/images/logo.png" class="img img-fluid" width="120px" alt="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,10 +47,10 @@
                     <div class="search mr-3">
                         <a href="search.html" class="btn btn-sm btn-outline-primary">Search</a>
                     </div>
-                    <div class="cart" >
+                    <div class="cart">
                         <a href="cart.html">
                             <i class="fas fa-shopping-cart fa-2x"></i>
-                            <span class="badge badge-pill badge-primary" id="cart"></span>
+                            <span class="badge badge-pill badge-primary" id="cart-count">0</span>
                         </a>
                     </div>
                 </div>
@@ -61,13 +63,16 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                   <a href="product.html"> <img class="d-block w-100" src="assets/images/slider-1.jpeg" alt="First slide"></a>
+                    <a href="product.html"> <img class="d-block w-100" src="assets/images/slider-1.jpeg"
+                            alt="First slide"></a>
                 </div>
                 <div class="carousel-item">
-                    <a href="product.html"> <img class="d-block w-100" src="assets/images/slider-2.jpeg" alt="Second slide"></a>
+                    <a href="product.html"> <img class="d-block w-100" src="assets/images/slider-2.jpeg"
+                            alt="Second slide"></a>
                 </div>
                 <div class="carousel-item">
-                    <a href="product.html"> <img class="d-block w-100" src="assets/images/slider-3.jpeg" alt="Third slide"></a>
+                    <a href="product.html"> <img class="d-block w-100" src="assets/images/slider-3.jpeg"
+                            alt="Third slide"></a>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -123,7 +128,8 @@
                 <div class="col-md-4 col-12">
                     <div class="single_product shadow text-center p-1">
                         <div class="product_img">
-                            <a href="product_detail.html"><img src="assets/images/green-dress.jpeg" class="img img-fluid" alt=""></a>
+                            <a href="product_detail.html"><img src="assets/images/green-dress.jpeg"
+                                    class="img img-fluid" alt=""></a>
                             <div class="new_product">
                                 <span class="badge py-2 px-3 badge-pill badge-danger">New</span>
                             </div>
@@ -146,7 +152,8 @@
                 <div class="col-md-4 col-12">
                     <div class="single_product shadow text-center p-1">
                         <div class="product_img">
-                            <a href="product_detail.html"><img src="assets/images/grey-dress.jpeg" class="img img-fluid" alt=""></a>
+                            <a href="product_detail.html"><img src="assets/images/grey-dress.jpeg" class="img img-fluid"
+                                    alt=""></a>
                             <div class="new_product">
                                 <span class="badge py-2 px-3 badge-pill badge-danger">New</span>
                             </div>
@@ -169,7 +176,8 @@
                 <div class="col-md-4 col-12">
                     <div class="single_product shadow text-center p-1">
                         <div class="product_img">
-                            <a href="product_detail.html"><img src="assets/images/jacket.jpeg" class="img img-fluid" alt=""></a>
+                            <a href="product_detail.html"><img src="assets/images/jacket.jpeg" class="img img-fluid"
+                                    alt=""></a>
                             <div class="new_product">
                                 <span class="badge py-2 px-3 badge-pill badge-danger">New</span>
                             </div>
@@ -191,67 +199,68 @@
                 </div>
                 <!-- Repeat similar structure for other products -->
             </div>
-           
+
         </div>
     </section>
     <!-- Go to Top Button -->
-<button id="goToTopBtn" class="btn btn-danger">
-    <i class="fas fa-arrow-up"></i>
-</button>
+    <button id="goToTopBtn" class="btn btn-danger">
+        <i class="fas fa-arrow-up"></i>
+    </button>
     <!-- Footer -->
-<footer class="footer mt-5 py-4 bg-light">
-    <div class="container">
-        <div class="row">
-            <!-- Company Info -->
-            <div class="col-md-4">
-                <div class="footer-logo">
-                    <img src="assets/images/logo.png" alt="Company Logo" class="img-fluid mb-3" width="150">
+    <footer class="footer mt-5 py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-md-4">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Company Logo" class="img-fluid mb-3" width="150">
+                    </div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, totam est illum ipsum quas ad
+                        dignissimos magni veritatis natus voluptatem.</p>
                 </div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, totam est illum ipsum quas ad dignissimos magni veritatis natus voluptatem.</p>
+                <!-- Quick Links -->
+                <div class="col-md-2">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="offers.html">Offers & Discounts</a></li>
+                        <li><a href="coupon.html">Get Coupon</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- New Products -->
+                <div class="col-md-3">
+                    <h5>New Products</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="product.html?category=fashion">Woman Cloth</a></li>
+                        <li><a href="product.html?category=fashion-accessories">Fashion Accessories</a></li>
+                        <li><a href="product.html?category=man-accessories">Man Accessories</a></li>
+                        <li><a href="product.html?category=toys">Rubber made Toys</a></li>
+                    </ul>
+                </div>
+                <!-- Support -->
+                <div class="col-md-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="faq.html">Frequently Asked Questions</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="payment-issue.html">Report a Payment Issue</a></li>
+                    </ul>
+                </div>
             </div>
-            <!-- Quick Links -->
-            <div class="col-md-2">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="offers.html">Offers & Discounts</a></li>
-                    <li><a href="coupon.html">Get Coupon</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <!-- New Products -->
-            <div class="col-md-3">
-                <h5>New Products</h5>
-                <ul class="list-unstyled">
-                    <li><a href="product.html?category=fashion">Woman Cloth</a></li>
-                    <li><a href="product.html?category=fashion-accessories">Fashion Accessories</a></li>
-                    <li><a href="product.html?category=man-accessories">Man Accessories</a></li>
-                    <li><a href="product.html?category=toys">Rubber made Toys</a></li>
-                </ul>
-            </div>
-            <!-- Support -->
-            <div class="col-md-3">
-                <h5>Support</h5>
-                <ul class="list-unstyled">
-                    <li><a href="faq.html">Frequently Asked Questions</a></li>
-                    <li><a href="terms.html">Terms & Conditions</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="payment-issue.html">Report a Payment Issue</a></li>
-                </ul>
+            <div class="text-center mt-3">
+                <p>&copy; 2024 My E-commerce Website. All Rights Reserved.</p>
             </div>
         </div>
-        <div class="text-center mt-3">
-            <p>&copy; 2024 My E-commerce Website. All Rights Reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
     <!-- jQuery, Popper.js, and Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="Assets/main.js"></script>
+    <script src="assets/main.js"></script>
 </body>
 
 </html>
