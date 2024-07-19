@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <section class="header_menu" id="header_menu">
@@ -16,7 +18,9 @@
                 <a class="navbar-brand pl-5 pl-small-0" href="index.html">
                     <img src="assets/images/logo.png" class="img img-fluid" width="120px" alt="logo">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -54,25 +58,32 @@
     <!-- Cart -->
     <section class="cart py-5 my-5 " id="cart">
         <div class="container">
-            
+            <div class="container text-center" style="padding-bottom: 30px;">
+                <h1 class="fs-1">Cart</h1>
+            </div>
             <div class="row">
                 <!-- Products Column -->
                 <div class="col-md-8 container">
-                    <h2>Your Cart</h2>
                     <div id="cart-items"></div>
                 </div>
-            
-            
+
+
                 <!-- Checkout Column -->
                 <div class="col-md-4 container">
                     <h4>Checkout</h4>
                     <div id="cart-total" class="mb-3">
                         <h4>Total: ₹0</h4>
+                        <p id="shipment-charges">Shipment Charges: ₹0</p>
+                        <p id="discount">Discount:0%</p>
+                        <p id="saved-money">You Saved:0</p>
+                        <hr>
+                        <h4 id="final-total">Final Total: ₹0</h4>
                     </div>
                     <button class="btn btn-primary btn-lg btn-block">Proceed to Checkout</button>
                 </div>
+
             </div>
-            </div>
+        </div>
         </div>
     </section>
 
@@ -85,7 +96,8 @@
                     <div class="footer-logo">
                         <img src="assets/images/logo.png" alt="Company Logo" class="img-fluid mb-3" width="150">
                     </div>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, totam est illum ipsum quas ad dignissimos magni veritatis natus voluptatem.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit, totam est illum ipsum quas ad
+                        dignissimos magni veritatis natus voluptatem.</p>
                 </div>
                 <!-- Quick Links -->
                 <div class="col-md-2">
@@ -137,33 +149,70 @@
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let cartHtml = '';
             let total = 0;
+            let shipmentCharges = 50; // Example fixed shipment charges
+            let discountPercentage = 10; // 10% discount on every product
+            let discount = 0; // Initialize total discount amount
+            let savedMoney = 0; // Initialize total saved money
+
+            if (cart.length === 0) {
+                // Cart is empty
+                $('#cart-items').html('<p>Your cart is empty.</p>');
+                $('#cart-total').find('h4').text('Total: ₹0');
+                $('#shipment-charges').text('Shipment Charges: ₹0');
+                $('#discount').text(`Discount: ${discountPercentage}%`);
+                $('#saved-money').text('You Saved: ₹0');
+                $('#final-total').text('Final Total: ₹0');
+                return; // Exit the function
+            }
 
             cart.forEach(item => {
-                total += item.price * item.quantity;
+                let itemTotalPrice = item.price * item.quantity;
+                let itemDiscount = itemTotalPrice * (discountPercentage / 100); // 10% discount on the total price of the item
+                let itemSavedMoney = itemDiscount; // Money saved due to discount
+
+                total += itemTotalPrice;
+                discount += itemDiscount;
+                savedMoney += itemSavedMoney;
+
                 cartHtml += `
-                    <div class="cart-item mb-3">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="${item.image}" class="img-fluid" alt="${item.name}">
-                            </div>
-                            <div class="col-md-8">
-                                <h5>${item.name}</h5>
-                                <p>Price: ₹${item.price}</p>
-                                <div class="d-flex align-items-center">
-                                    <button class="btn btn-secondary btn-sm" onclick="changeQuantity(${item.id}, -1)">-</button>
-                                    <span class="mx-2">${item.quantity}</span>
-                                    <button class="btn btn-secondary btn-sm" onclick="changeQuantity(${item.id}, 1)">+</button>
-                                    <button class="btn btn-danger btn-sm ml-2" onclick="removeFromCart(${item.id})">Remove</button>
-                                </div>
-                            </div>
+            <div class="cart-item mb-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="${item.image}" class="img-fluid" alt="${item.name}">
+                    </div>
+                    <div class="col-md-8">
+                        <h5>${item.name}</h5>
+                        <p>Price: ₹${item.price}</p>
+                        <p>Discount: -₹${itemDiscount.toFixed(2)} (${discountPercentage}%)</p>
+                        <div class="d-flex align-items-center">
+                            <button class="btn btn-secondary btn-sm" onclick="changeQuantity(${item.id}, -1)">-</button>
+                            <span class="mx-2">${item.quantity}</span>
+                            <button class="btn btn-secondary btn-sm" onclick="changeQuantity(${item.id}, 1)">+</button>
+                            <button class="btn btn-danger btn-sm ml-2" onclick="removeFromCart(${item.id})">Remove</button>
                         </div>
                     </div>
-                `;
+                </div>
+            </div>
+        `;
             });
 
+            let finalTotal = total + shipmentCharges - discount;
+
             $('#cart-items').html(cartHtml);
-            $('#cart-total').find('h4').text(`Total: ₹${total}`);
+            $('#cart-total').find('h4').text(`Total: ₹${total.toFixed(2)}`);
+            $('#shipment-charges').text(`Shipment Charges: ₹${shipmentCharges}`);
+            $('#discount').text(`Discount: ${discountPercentage}%`);
+            $('#saved-money').text(`You Saved: ₹${savedMoney.toFixed(2)}`);
+            $('#final-total').text(`Final Total: ₹${finalTotal.toFixed(2)}`);
         }
+
+        $(document).ready(function () {
+            updateCart();
+            const cartCount = JSON.parse(localStorage.getItem('cart'))?.length || 0;
+            $('#cart-count').text(cartCount);
+        });
+
+
 
         function changeQuantity(productId, delta) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -189,4 +238,5 @@
         });
     </script>
 </body>
+
 </html>
