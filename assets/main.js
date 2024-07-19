@@ -54,5 +54,9 @@
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
     };
 
-
+    $(document).ready(function () {
+        updateCart();
+        const cartCount = JSON.parse(localStorage.getItem('cart'))?.length || 0;
+        $('#cart-count').text(cartCount);
+    });
 
