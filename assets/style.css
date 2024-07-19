@@ -208,3 +208,103 @@ img {
             top: 10px;
             right: 10px;
         }
+
+        /*order page*/
+        /* Custom styles for the checkout page */
+.bg_checkout_1 {
+    background-color: #f8f9fa;
+}
+.section_title h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+/*order page*/
+body {
+    background-color: #f8f9fa;
+}
+
+.order-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+
+.form-control {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+}
+
+.order-summary {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h4 {
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.order-item img {
+    width: 100%;
+    height: auto;
+}
+
+.order-item {
+    margin-bottom: 15px;
+}
+.details-container{
+    height: 200px;
+}
+/*order confirmation*/
+.checkmark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 5px solid green;
+}
+
+.checkmark i {
+    font-size: 100px;
+    color: green;
+}
