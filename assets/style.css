@@ -38,6 +38,36 @@ img {
     object-fit: cover;
 }
 
+/*our features section*/
+
+.features-section {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    padding: 50px 0;
+  }
+  
+  .feature-box {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .feature-box:hover {
+    transform: translateY(-10px);
+  }
+  
+  .feature-box .icon {
+    font-size: 50px;
+    color: #0072ff;
+  }
+  
+  h2 {
+    text-decoration: underline;
+    color: white;
+  }
+  
 /* Category Section */
 .shop_by_category .card {
     transition: transform 0.3s ease;
@@ -256,6 +286,10 @@ body {
 .form-control {
     font-size: 0.875rem;
     padding: 0.5rem;
+}
+.purchase-btn{
+    display: flex;
+    justify-content: center;
 }
 
 .order-summary {
