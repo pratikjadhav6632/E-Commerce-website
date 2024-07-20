@@ -250,3 +250,9 @@ function proceedToCheckout() {
 }
 
 document.addEventListener('DOMContentLoaded', updateCart);
+
+function buyNow() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    window.location.href = `order.html?id=${productId}`;
+}
