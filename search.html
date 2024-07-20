@@ -14,15 +14,33 @@
     <link rel="icon" type="image/x-icon" href="assets/images/logo.jpg">
     <style>
         .search-results {
-            display: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f8f9fa;
         }
 
-        .suggestion-item {
-            cursor: pointer;
+        .search-results .card {
+            margin: 10px;
+            width: 250px;
+            max-width: 100%;
         }
 
-        .suggestion-item:hover {
-            background-color: #f0f0f0;
+        .search-input-container {
+            position: relative;
+        }
+
+        #suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -58,13 +76,13 @@
                             <a class="nav-link" href="contact.html">Contact Us</a>
                         </li>
                     </ul>
-                    <div class="search mr-3">
+                    <div class="search search-input-container mr-3">
                         <form class="form-inline my-2 my-lg-0" id="search-form">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                                 id="search-input">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                         </form>
-                        <ul id="suggestions" class="list-unstyled position-absolute bg-white border"></ul>
+                        <ul id="suggestions" class="list-unstyled"></ul>
                     </div>
                     <div class="cart">
                         <a href="cart.html">
@@ -78,15 +96,8 @@
     </section>
 
     <!-- Search Results -->
-    <section class="search-results py-5 my-5" id="search-results">
-        <div class="container">
-            <div class="section_title text-center mb-5">
-                <h1 class="text-capitalize">Search Results</h1>
-            </div>
-            <div class="row" id="product-list">
-                <!-- Products will be dynamically inserted here -->
-            </div>
-        </div>
+    <section class="search-results" id="search-results">
+        <!-- Products will be dynamically inserted here -->
     </section>
 
     <!-- Footer -->
@@ -156,75 +167,79 @@
                 { id: 3, name: "Blue Jacket with details", price: 599, category: "Fashion", rating: 3, image: "assets/images/jacket.jpeg" },
                 { id: 4, name: "Blue Hoodie with details", price: 299, category: "Fashion", rating: 3, image: "assets/images/blue-dress.jpeg" },
                 { id: 5, name: "Girl Outfit with details", price: 799, category: "Fashion", rating: 4, image: "assets/images/girl-dress.jpeg" },
-                { id: 6, name: "Hoodie with details", price: 299, category: "Fashion", rating: 3, image: "assets/images/sweater.jpeg" },
-                { id: 7, name: "iPhone with details", price: 119999, category: "Electronics", rating: 4, image: "assets/images/iphone.jpeg" },
-                { id: 8, name: "Vivo with details", price: 19999, category: "Electronics", rating: 4, image: "assets/images/vivo.jpeg" },
-                { id: 9, name: "Laptop with details", price: 1999, category: "Electronics", rating: 4, image: "assets/images/laptop.jpeg" },
-                { id: 10, name: "Camera with details", price: 1999, category: "Electronics", rating: 4, image: "assets/images/camera.jpeg" },
-                { id: 11, name: "Beauty product with details", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty1.jpeg" },
-                { id: 12, name: "Beauty product with details", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty2.jpeg" },
+                { id: 9, name: "Laptop with details", price: 54999, category: "Electronics", rating: 4, image: "assets/images/laptop.jpeg" },
+                { id: 7, name: "iPhone 14 with details", price: 84999, category: "Electronics", rating: 5, image: "assets/images/iphone.jpeg" },
+                { id: 11, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty1.jpeg" },
+                { id: 10, name: "Canon EOS M50", price: 40999, category: "Electronics", rating: 4, image: "assets/images/camera.jpeg" },
+                { id: 12, name: "Beauty Product", price: 1999, category: "Beauty Products", rating: 4, image: "assets/images/beauty2.jpeg" },
+                { id: 8, name: "Vivo", price: 19999, category: "Electronics", rating: 4, image: "assets/images/vivo.jpeg" },
+                { id: 6, name: "Hoodie", price: 299, category: "Fashion", rating: 3, image: "assets/images/sweater.jpeg" },
+
             ];
 
-            function renderProducts(searchTerm) {
-                const filteredProducts = products.filter(product => fuzzyMatch(product.name, searchTerm));
-                const productHTML = filteredProducts.map(product => `
-                    <div class="col-md-3 mb-4">
+            function displayProducts(productsToDisplay) {
+                $('#search-results').empty();
+                productsToDisplay.forEach(product => {
+                    $('#search-results').append(`
                         <div class="card">
                             <img src="${product.image}" class="card-img-top" alt="${product.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${product.name}</h5>
                                 <p class="card-text">Price: $${product.price}</p>
                                 <p class="card-text">Category: ${product.category}</p>
-                                <p class="card-text">Rating: ${'★'.repeat(product.rating)}${'☆'.repeat(5 - product.rating)}</p>
-                                <a href="product.html?id=${product.id}" class="btn btn-primary">View Product</a>
+                                <p class="card-text">Rating: ${'⭐'.repeat(product.rating)}</p>
+                                <a href="product-details.html?id=${product.id}" class="btn btn-primary">View Product</a>
                             </div>
                         </div>
-                    </div>
-                `).join('');
-                $('#product-list').html(productHTML);
-                $('#search-results').show();
+                    `);
+                });
             }
 
-            function fuzzyMatch(productName, searchTerm) {
-                // Convert both to lowercase and check if the search term is included in the product name
-                return productName.toLowerCase().includes(searchTerm.toLowerCase());
-            }
-
-            function renderSuggestions(searchTerm) {
-                const suggestions = products
-                    .filter(product => fuzzyMatch(product.name, searchTerm))
-                    .map(product => `<li class="suggestion-item list-group-item">${product.name}</li>`)
-                    .join('');
-                $('#suggestions').html(suggestions);
-                $('#suggestions').toggle(suggestions.length > 0);
+            function searchProducts(query) {
+                return products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
             }
 
             $('#search-input').on('input', function () {
-                const searchTerm = $(this).val();
-                renderSuggestions(searchTerm);
+                const query = $(this).val();
+                const suggestions = searchProducts(query);
+                $('#suggestions').empty();
+
+                suggestions.forEach(product => {
+                    $('#suggestions').append(`<li class="suggestion-item px-2 py-1">${product.name}</li>`);
+                });
+
+                $('.suggestion-item').on('click', function () {
+                    $('#search-input').val($(this).text());
+                    $('#suggestions').empty();
+                });
+
+                // Display products matching the search query
+                if (query.length > 0) {
+                    const results = searchProducts(query);
+                    displayProducts(results);
+                    $('#search-results').show();
+                } else {
+                    // Show all products when search query is empty
+                    displayProducts(products);
+                }
             });
 
             $('#search-form').on('submit', function (e) {
                 e.preventDefault();
-                const searchTerm = $('#search-input').val();
-                renderProducts(searchTerm);
-            });
+                const query = $('#search-input').val();
+                const results = searchProducts(query);
 
-            $('#suggestions').on('click', '.suggestion-item', function () {
-                const selectedSuggestion = $(this).text();
-                $('#search-input').val(selectedSuggestion);
-                renderProducts(selectedSuggestion);
-                $('#suggestions').hide();
-            });
-
-            $(document).click(function (e) {
-                if (!$(e.target).closest('#search-input').length && !$(e.target).closest('#suggestions').length) {
-                    $('#suggestions').hide();
+                if (results.length > 0) {
+                    $('#search-results').show();
+                    displayProducts(results);
+                } else {
+                    $('#search-results').show();
+                    $('#search-results').html('<p class="text-center">No products found.</p>');
                 }
             });
 
-            // Initial render of all products
-            renderProducts('');
+            // Initial display of all products
+            displayProducts(products);
         });
     </script>
 </body>
