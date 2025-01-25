@@ -5,9 +5,9 @@ Welcome to our **eCommerce Website** repository! This project showcases a fully 
 ## 🚀 <a href="https://demo-e-commerce-website.netlify.app/">Visit Now</a>
 ## 🌟 Features
 
-- 📱 **Responsive Design:** Fully responsive and optimized for all devices.
-- 🛍️ **Product Listings:** Browse through a variety of products with detailed descriptions.
-- 🛒 **Shopping Cart:** Easily add, remove, and update product quantities.
+- 📱 **Responsive Design:** Fully responsive and optimized for all devices..
+- 🛍️ **Product Listings:** Browse through a variety of products with detailed descriptions..
+- 🛒 **Shopping Cart:** Easily add, remove, and update product quantities..
 - 💳 **Checkout Process:** Smooth and user-friendly checkout experience.
 - ✅ **Order Confirmation:** Clean and simple order confirmation page.
 - 🔍 **Search with Suggestions:** Real-time search suggestions as you type, even with partial names or initials.
